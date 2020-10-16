@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="styles.css">
+		<script src="script.js"></script>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+        <form>
+            <fieldset> <legend>Ваши данные</legend>
+                <label for="uname">Ваше имя<em>*</em>:</label><br>
+                <input type="text" id="uname" name="uname" required="required" placeholder="Мария Семененко" formmethod="POST"><br>
+                <label for="email">Ваш email<em>*</em>:</label><br>
+                <input type="email" id="email" name="email" required="required" placeholder="maria99@example.com" formmethod="POST"><br>
+                <label for="age">Ваша дата рождения<em>*</em>:</label><br>
+                <input type="date" id="age" name="age" required="required" formmethod="POST"><br>
+            </fieldset>
+
+            <fieldset> <legend>Что вы хотите найти?</legend>
+                <label for="title">Название? </label><br>
+                <input type="search" id="title" name="title" formmethod="POST"><br>
+                <label for="list">Выберете основной жанр</label><br>
+                <select name="genres[]" id="list" name="list" multiple="multiple" size="5">
+                    <option value="1">Фэнтези</option>
+                    <option value="2">Школа</option>
+                    <option value="3">Ужасы</option>
+                    <option value="4">Триллер</option>
+                    <option value="5">Эротика</option>
+                </select><br>
+
+                <label for="notbefore">Выпущено не раньше:</label><br>
+                <input type="range" id="notbefore" name="notbefore" min="1950" max="2020" step="1" formmethod="POST"><br>
+                <label for="notafter">Выпущено не позже:</label><br>
+                <input type="range" id="notafter" name="notafter" min="1950" max="2020" step="1" formmethod="POST"><br>
+            </fieldset>
+
+            <fieldset> <legend>Безопасность</legend>
+                <label for="tel">Ваш телефон, привязанный к email<em>*</em>:</label><br>
+                <input type="tel" id="tel" name="tel" pattern="(0[0-9]{2})-[0-9]{3}-[0-9]{2}-[0-9]{2}" required="required" placeholder="(095)-465-55-92" formmethod="POST"><br>
+                <label for="password">Ваш пароль от email<em>*</em>:</label><br>
+                <input type="password" id="password" name="password" required="required" formmethod="POST" placeholder=";)"><br><br>
+
+                <label for="agreement">Я согласен на обработку личных данных <em>*</em></label>
+                <input type="checkbox" id="checkbox" name="checkbox" required="required" formmethod="POST"><br><br>
+            </fieldset>
+
+            <textarea id="opinion" name="opinion" formmethod="POST">Что вы о нас думаете?</textarea><br><br>
+
+            <input type="submit" id="submit" name="submit" value="Отправить">
+            <input type="reset" id="reset" name="reset" value="Заново">
+            
+        </form>
+		
+	</body>
+</html>
