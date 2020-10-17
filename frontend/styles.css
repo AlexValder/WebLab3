@@ -19,6 +19,32 @@ body {
     border-radius: 5px;
 }
 
+.response-bg, .response {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
+
+.response-bg {
+    z-index: 10;
+    background-color: black;
+    opacity: 0.8;
+
+}
+
+.response {
+    z-index: 10;
+}
+
+.response img {
+    width: 30%;
+    margin-top: 5%;
+}
+
+.response h2 {
+    color: white;
+}
+
 fieldset, legend {
     background-color: #fffffff0;
     border: 1px solid black;
@@ -73,7 +99,7 @@ input[type=range] {
 }
 
 input[type=date] {
-    font-family: serif;
+    font-family: "Major Mono Display", monospace;
 }
 
 input[type=tel] {
