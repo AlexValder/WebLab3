@@ -2,21 +2,25 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-        <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet"> 
+         <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poiret+One&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="styles.css">
 		<script src="script.js"></script>
-		<title>JavaScript</title>
+		<title>♥ Anime	♥</title>
 	</head>
 	<body>
+        <header>
+            <h1>Добро пожаловать!</h1>
+        </header>
+
         <div class="container">
-            <form>
+            <form id="form">
                 <fieldset> <legend>Ваши данные</legend>
                     <label for="uname">Ваше имя<em>*</em>:</label><br>
                     <input type="text" id="uname" name="uname" required="required" placeholder="Мария Семененко" formmethod="POST"><br>
                     <label for="email">Ваш email<em>*</em>:</label><br>
                     <input type="email" id="email" name="email" required="required" placeholder="maria99@example.com" formmethod="POST"><br>
-                    <label for="age">Ваша дата рождения<em>*</em>:</label><br>
-                    <input type="date" id="age" name="age" required="required" formmethod="POST"><br>
+                    <label for="dob">Ваша дата рождения<em>*</em>:</label><br>
+                    <input type="date" id="dob" name="dob" required="required" formmethod="POST"><br>
                 </fieldset>
 
                 <fieldset> <legend>Что вы хотите найти?</legend>
@@ -28,26 +32,28 @@
                         <option value="2">Школа</option>
                         <option value="3">Ужасы</option>
                         <option value="4">Триллер</option>
-                        <option value="5">Эротика</option>
+                        <option value="5">Эччи</option>
                     </select><br>
 
-                    <label for="notbefore">Выпущено не раньше:</label><br>
-                    <input type="range" id="notbefore" name="notbefore" min="1950" max="2020" step="1" onchange="logVal('Not Before ', this.value)" formmethod="POST"><br>
-                    <label for="notafter">Выпущено не позже:</label><br>
-                    <input type="range" id="notafter" name="notafter" min="1950" max="2020" step="1" onchange="logVal('Not After ', this.value)" formmethod="POST"><br>
+                    Выпущено не раньше: <label for="notbefore"></label><br>
+                    <input type="range" id="notbefore" name="notbefore" value="1950" min="1950" max="2020" step="1" onchange="setYear(event)" formmethod="POST"><br>
+                    Выпущено не позже: <label for="notafter"></label><br>
+                    <input type="range" id="notafter" name="notafter" value="2020" min="1950" max="2020" step="1" onchange="setYear(event)" formmethod="POST"><br>
                 </fieldset>
 
                 <fieldset> <legend>Безопасность</legend>
                     <label for="tel">Ваш телефон, привязанный к email<em>*</em>:</label><br>
-                    <input type="tel" id="tel" name="tel" pattern="(0[0-9]{2})-[0-9]{3}-[0-9]{2}-[0-9]{2}" required="required" placeholder="(095)-465-55-92" formmethod="POST"><br>
+                    <input type="tel" id="tel" name="tel" pattern="\(0[0-9]{2}\)-[0-9]{3}-[0-9]{2}-[0-9]{2}" required="required" placeholder="(095)-465-55-92" formmethod="POST"><br>
                     <label for="password">Ваш пароль от email<em>*</em>:</label><br>
-                    <input type="password" id="password" name="password" required="required" formmethod="POST" placeholder=";)"><br><br>
+                    <input type="password" id="password" name="password" required="required" formmethod="POST" placeholder="hehe"><br><br>
 
                     <label for="agreement">Я согласен на обработку личных данных <em>*</em></label>
-                    <input type="checkbox" id="checkbox" name="checkbox" required="required" formmethod="POST"><br><br>
+                    <input type="checkbox" id="checkbox" name="checkbox" required="required" formmethod="POST"><br>
                 </fieldset>
 
-                <textarea id="opinion" name="opinion" formmethod="POST">Что вы о нас думаете?</textarea><br><br>
+                <fieldset> <legend>Отзыв (необязательно)</legend>
+                    <textarea id="opinion" name="opinion" placeholder="Что вы о нас думаете?" formmethod="POST"></textarea><br>    
+                </fieldset>
 
                 <input type="submit" id="submit" name="submit" value="Отправить">
                 <input type="reset" id="reset" name="reset" value="Заново">
@@ -58,6 +64,11 @@
         <footer>
             <a href='https://www.freepik.com/vectors/background'>Background vector created by gohsantosa2 - www.freepik.com</a>
         </footer>
+
+    <script>
+        setupFields();
+        document.addEventListener("reset", onReset, false);
+    </script>
 		
 	</body>
 </html>
