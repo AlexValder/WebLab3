@@ -2,9 +2,6 @@
 function setYear(event) {
     target = event.target;
 
-    console.log(event.eventName);
-    console.log(event.eventType);
-
     for (ls of target.labels) {
         ls.innerHTML = target.value;
     }
