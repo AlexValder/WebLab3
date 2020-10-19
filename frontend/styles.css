@@ -1,12 +1,21 @@
 
 body {
     text-align: center;
-    background-image: url(res/bg.jpg);
     background-color: transparent;
-    background-size: 25%;
-    background-repeat: repeat;
     font-family: "Poiret One", cursive;
     font-size: 150%;
+}
+
+body[name="main"] {
+    background-image: url(res/bg.jpg);
+    background-size: 25%;
+    background-repeat: repeat;
+}
+
+body[name="hacker"] {
+    margin: 0;
+    background: url(res/hacker.jpg) no-repeat center center fixed;
+    background-size: 100% 100%;
 }
 
 .container {
@@ -19,30 +28,20 @@ body {
     border-radius: 5px;
 }
 
-.response-bg, .response {
+.response {
     width: 100vw;
     height: 100vh;
     position: absolute;
-}
-
-.response-bg {
-    z-index: 10;
-    background-color: black;
-    opacity: 0.8;
-
-}
-
-.response {
-    z-index: 10;
-}
-
-.response img {
-    width: 30%;
-    margin-top: 5%;
+    display: table;
 }
 
 .response h2 {
     color: white;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 fieldset, legend {
