@@ -1,12 +1,14 @@
 #![feature(with_options)]
 use std::fs;
 use std::net::{TcpListener, TcpStream};
-mod thread_pool;
+use std::env;
 use std::io::prelude::*;
 
+mod thread_pool;
 
 fn main() {
-    let listener = match TcpListener::bind("192.168.0.104:7878") {
+    let ip = get_ip();
+    let listener = match TcpListener::bind(ip) {
         Ok(tcp_listener) => tcp_listener,
         Err(_) => {println!("Didn't manage to bind ip address."); return; }
     };
@@ -16,6 +18,24 @@ fn main() {
         let stream = stream.unwrap();
         pool.execute(|| handle_connection(stream));
     }
+}
+
+
+fn get_ip() -> String {
+    let ip: String;
+    let args: Vec<String> = env::args().collect();
+    if args.len() > 1 {
+        ip = args[1].clone();
+    } else {
+        ip = match fs::read_to_string("server.ini") {
+            Ok(address) => address,
+            Err(err) => {
+                panic!("File server.ini not found. {}", err);
+            },
+        };
+    }
+    println!("ip: {}", ip);
+    ip
 }
 
 
@@ -59,7 +79,7 @@ fn handle_get_request(buffer: &[u8]) -> Vec<u8> {
     };
     let content = match fs::read(format!("../frontend{}", path)) {
         Ok(val) => val,
-        Err(err) => {println!("{}", err); Vec::new()},
+        Err(err) => {println!("{} opening error: {}", path, err); Vec::new()},
     };
     content
 }
